@@ -10,6 +10,7 @@
 # So all we really need to do is just clone the ohmyzsh git repo.
 
 export ZSH=~/.oh-my-zsh
+export ZSH_CUSTOM=$ZSH/custom
 
 if [ ! -d $ZSH ]; then
   REPO=ohmyzsh/ohmyzsh
@@ -23,3 +24,17 @@ if [ ! -d $ZSH ]; then
     --depth=1 --branch "$BRANCH" "$REMOTE" "$ZSH"
 fi
 
+##### Install the Powerlevel10k Theme#####
+
+if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+  # Install Powerlevel10k itself
+  git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+  # Install the Meslo Nerd Font
+  cd ~/Library/Fonts && {
+    curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf';
+    curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf';
+    curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf';
+    curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf';
+    cd -; }
+fi
