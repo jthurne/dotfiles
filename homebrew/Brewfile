@@ -2,30 +2,53 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
-brew 'ack' # grep
+brew 'ack'                       # grep
 brew 'bash'
-brew 'bat' # cat
-brew 'coreutils' # https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities
+brew 'bat'                       # cat
+brew 'coreutils'                 # https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities
 brew 'docker'
-brew 'fd' # find
+brew 'diffutils'
+brew 'fd'                        # Simple, fast, and user-friendly alternative to find
+brew 'ffmpeg'                    # powerful video conversion/endocing utility
+brew 'findutils'                 # classic GNU find
+brew 'gawk'                      # GNU awk
+brew 'git'                       # Should be installed when homebrew is installed, but this just makes it official
+brew 'git-delta'                 # Syntax-highlighting pager for git and diff output
+brew 'gnu-sed'
+brew 'gnu-tar'
+brew 'gnu-which'
+brew 'go'
 brew 'gpg'
 brew 'gpg2'
+brew 'graphviz'                  # Create graphs and diagrams using a text-based DSL
+brew 'grep'                      # GNU grep
+brew 'gzip'
+brew 'hub'                       # CLI for GitHub
 brew 'imagemagick'
-brew 'jq' # json query
+brew 'jq'                        # json query
 brew 'kubernetes-cli'
 brew 'libgit2'
+brew 'mas'                       # Mac App Store command-line interface
+brew 'node'                      # Node.JS
 brew 'openssl'
-brew 'readline'
-brew 'renameutils'
+brew 'pyenv'                     # Python version manager
+brew 'pyenv-virtualenv'          # Create "virtual" python environments
+brew 'poetry'                    # Python package management tool
+brew 'rbenv'                     # Ruby version manager
+brew 'readline'                  # enables command-line editing with vi/emacs keybindings
+brew 'renameutils'               # provides icp and imv
+brew 'tree'                      # show directory structures on the commandline
+brew 'watch'                     # watch command that lets you run a command periodically, showing output in fullscreen
 brew 'wget'
 brew 'youtube-dl'
-brew 'yq' # like jq, for yaml
+brew 'yq'                        # like jq, for yaml
 brew 'zsh-syntax-highlighting'
 brew 'zsh'
 
 cask 'docker'
-cask 'google-chrome'
 cask 'firefox'
+cask 'gimp'
+cask 'google-chrome'
 cask 'insomnia'
 cask 'intellij-idea-ce'
 cask 'iterm2'
@@ -34,6 +57,7 @@ cask 'libreoffice'
 cask 'slack'
 cask 'spectacle'
 cask 'visual-studio-code'
+cask 'vlc'
 
 tap 'AdoptOpenJDK/openjdk'
 cask 'adoptopenjdk8-openj9'
