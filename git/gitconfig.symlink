@@ -10,15 +10,22 @@
         rank-contributors = !$DOTFILES/bin/git-rank-contributors
         count   = !git shortlog -sn
 [color]
-        diff = auto
-        status = auto
         branch = auto
+        diff = auto
+        grep = auto
+        interactive = auto
+        status = auto
         ui = true
 [core]
         excludesfile = ~/.gitignore
         editor = vim
+        autocrlf = false
+        safecrlf = true
+        pager = delta
 [apply]
         whitespace = nowarn
+[merge]
+        tool = opendiff
 [mergetool]
         keepBackup = false
 [difftool]
@@ -28,8 +35,19 @@
 [push]
         # See `git help config` (search for push.default)
         # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+        default = current
+[pull]
+        rebase = true
+[log]
+        decorate = short
+[rebase]
+        autoSquash = true
 [credential]
 	helper = osxkeychain
+[init]
+        defaultBranch = main
+[delta]
+        syntax-theme = Solarized (dark)
+[interactive]
+        diffFilter = delta --color-only
+
