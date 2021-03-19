@@ -1,0 +1,41 @@
+cask_args appdir: '/Applications'
+
+tap 'homebrew/bundle'
+
+brew 'ack' # grep
+brew 'bash'
+brew 'bat' # cat
+brew 'coreutils' # https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities
+brew 'docker'
+brew 'fd' # find
+brew 'gpg'
+brew 'gpg2'
+brew 'imagemagick'
+brew 'jq' # json query
+brew 'kubernetes-cli'
+brew 'libgit2'
+brew 'openssl'
+brew 'readline'
+brew 'renameutils'
+brew 'wget'
+brew 'youtube-dl'
+brew 'yq' # like jq, for yaml
+brew 'zsh-syntax-highlighting'
+brew 'zsh'
+
+cask 'docker'
+cask 'google-chrome'
+cask 'firefox'
+cask 'insomnia'
+cask 'intellij-idea-ce'
+cask 'iterm2'
+cask 'lastpass'
+cask 'libreoffice'
+cask 'spectacle'
+cask 'visual-studio-code'
+
+tap 'AdoptOpenJDK/openjdk'
+cask 'adoptopenjdk8-openj9'
+cask 'adoptopenjdk11-openj9'
+cask 'adoptopenjdk-openj9'
+
