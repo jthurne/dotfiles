@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Installs Oh My ZSH!
 #
@@ -24,7 +24,7 @@ if [ ! -d $ZSH ]; then
     --depth=1 --branch "$BRANCH" "$REMOTE" "$ZSH"
 fi
 
-##### Install the Powerlevel10k Theme#####
+##### Install the Powerlevel10k Theme
 
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
   # Install Powerlevel10k itself
@@ -38,3 +38,10 @@ if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
     curl -O 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf';
     cd -; }
 fi
+
+##### Install zsh-autosuggestions
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+fi
+
