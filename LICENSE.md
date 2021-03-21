@@ -2,7 +2,7 @@ The MIT License
 
 Copyright (c) for portions of this project are held by Zach Holman,
 http://zachholman.com, as part of https://github.com/holman/dotfiles. All other
-copyright for this project are held by Jim Hurne.
+copyright for this project are held by James Hurne.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
