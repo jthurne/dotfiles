@@ -1,16 +1,31 @@
-# holman does dotfiles
+# Hurne's dotfiles
 
-Your dotfiles are how you personalize your system. These are mine.
+These are my personalization settings and customizations.
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
+I looked at a lot of different dotfile repositories, and ultimately I thought
+[Zach Holman's dotfiles](https://github.com/holman/dotfiles) were the best fit
+for me. I found Holmna's dotfiles structure to be organized and easy to
+understand and navigate.
 
 If you're interested in the philosophy behind why projects like these are
-awesome, you might want to [read my post on the
+awesome, you might want to [read Zach Holman's blog post on the
 subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+
+## How I manage Java-related packages
+
+There are a lot of different ways to manage JDKs, SDKs and other Java-related development tools. For now, I've chosen to:
+
+  - Use Homebrew to manage JDKs - this way, the JDKs are updated when I update
+    other packages with homebew. There is a simple `jdk` function that can be
+    used to manage which JDK the actively chosen one.
+
+  - Use SDKMAN for other Java tools (such as Groovy and Gradle). SDKMAN makes it easy to manage
+    different versions of the other tools (it's support for JDKs is kind of messy).
+
+# Holman's original README content 
+
+The sections below are from Holman's original README. I'm leaving it here for
+ease-of-reference, but note that I didn't write it.
 
 ## topical
 
