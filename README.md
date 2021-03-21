@@ -4,8 +4,8 @@ These are my personalization settings and customizations.
 
 I looked at a lot of different dotfile repositories, and ultimately I thought
 [Zach Holman's dotfiles](https://github.com/holman/dotfiles) were the best fit
-for me. I found Holmna's dotfiles structure to be organized and easy to
-understand and navigate.
+for me. I found Holman's dotfiles to be well organized and easy to understand
+and navigate.
 
 If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read Zach Holman's blog post on the
