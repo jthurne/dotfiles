@@ -13,7 +13,8 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## How I manage Java-related packages
 
-There are a lot of different ways to manage JDKs, SDKs and other Java-related development tools. For now, I've chosen to:
+There are a lot of different ways to manage JDKs, SDKs and other Java-related
+development tools. For now, I've chosen to:
 
   - Use Homebrew to manage JDKs - this way, the JDKs are updated when I update
     other packages with homebew. There is a simple `jdk` function that can be
@@ -21,6 +22,12 @@ There are a lot of different ways to manage JDKs, SDKs and other Java-related de
 
   - Use SDKMAN for other Java tools (such as Groovy and Gradle). SDKMAN makes it easy to manage
     different versions of the other tools (it's support for JDKs is kind of messy).
+
+## Significant differences from Holman's original dotfiles
+
+  - As suggested by [@rafaeleyng's dotfiles](https://github.com/rafaeleyng/dotfiles), 
+    the `$ZSH` environment variable has been renamed to `$DOTFILES` so that I could 
+    use oh-my-zsh.
 
 # Holman's original README content 
 
