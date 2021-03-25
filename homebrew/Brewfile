@@ -61,8 +61,3 @@ cask 'spectacle'
 cask 'visual-studio-code'
 cask 'vlc'
 
-tap 'AdoptOpenJDK/openjdk'
-cask 'adoptopenjdk8-openj9'
-cask 'adoptopenjdk11-openj9'
-cask 'adoptopenjdk-openj9'
-
