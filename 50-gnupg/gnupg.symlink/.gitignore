@@ -1,0 +1,6 @@
+*.gpg
+*.gpg~
+*.kbx
+*.kbx~
+private-keys-v1.d/
+openpgp-revocs.d/
