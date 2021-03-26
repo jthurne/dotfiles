@@ -17,19 +17,15 @@ typeset -U config_files
 config_files=($DOTFILES/**/*.zsh)
 
 # load the path files
-echo "Loading path files"
 for file in ${(M)config_files:#*/path.zsh}
 do
-  echo "Loading $file"
   source $file
 done
 echo
 
 # load everything but the path and completion files
-echo "Loading normal settigns"
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  echo "Loading $file"
   source $file
 done
 echo
@@ -38,11 +34,9 @@ echo
 autoload -U compinit
 compinit
 
-echo "Loading completions"
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  echo "Loading $file"
   source $file
 done
 
