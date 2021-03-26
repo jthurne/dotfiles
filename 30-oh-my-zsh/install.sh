@@ -8,6 +8,8 @@
 # want to do because we're managing that ourselves.
 # 
 # So all we really need to do is just clone the ohmyzsh git repo.
+echo
+echo "Installing Oh My ZSH!"
 
 export ZSH=~/.oh-my-zsh
 export ZSH_CUSTOM=$ZSH/custom
@@ -27,6 +29,7 @@ fi
 ##### Install the Powerlevel10k Theme
 
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+  echo "...installing Powerlevel10k!"
   # Install Powerlevel10k itself
   git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
@@ -41,13 +44,16 @@ fi
 
 ##### Install zsh-autosuggestions
 
+
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+  echo "...installing zsh-autosuggestions"
   git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 fi
 
 ##### Install zsh-syntax-highlighting
 
-if [ ! -d "$ZSH_CUSTOM/plugins/zsh-zsh-syntax-highlighting" ]; then
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+  echo "...installing zsh-syntax-highlighting"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
