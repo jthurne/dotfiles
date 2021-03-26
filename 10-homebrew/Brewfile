@@ -33,10 +33,7 @@ brew 'libgit2'
 brew 'mas'                       # Mac App Store command-line interface
 brew 'node'                      # Node.JS
 brew 'openssl'
-brew 'pyenv'                     # Python version manager
-brew 'pyenv-virtualenv'          # Create "virtual" python environments
 brew 'poetry'                    # Python package management tool
-brew 'rbenv'                     # Ruby version manager
 brew 'readline'                  # enables command-line editing with vi/emacs keybindings
 brew 'renameutils'               # provides icp and imv
 brew 'tree'                      # show directory structures on the commandline
