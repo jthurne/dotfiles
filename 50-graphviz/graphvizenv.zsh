@@ -1,2 +1,2 @@
 # Tell Graphviz where dot lives
-export GRAPHVIZ_DOT=/usr/local/bin/dot
+export GRAPHVIZ_DOT="$(brew --prefix graphviz)/bin/dot"
