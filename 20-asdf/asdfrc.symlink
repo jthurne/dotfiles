@@ -1,0 +1,7 @@
+
+# Use asdf to interpret legacy files like .ruby_version
+legacy_version_file = yes
+
+# Enable /usr/libexec/java_home integration
+# See https://github.com/halcyon/asdf-java#macos-integration
+java_macos_integration_enable = yes
