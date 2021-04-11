@@ -11,23 +11,22 @@ If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read Zach Holman's blog post on the
 subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
-## How I manage Java-related packages
-
-There are a lot of different ways to manage JDKs, SDKs and other Java-related
-development tools. For now, I've chosen to:
-
-  - Use Homebrew to manage JDKs - this way, the JDKs are updated when I update
-    other packages with homebew. There is a simple `jdk` function that can be
-    used to manage which JDK the actively chosen one.
-
-  - Use SDKMAN for other Java tools (such as Groovy and Gradle). SDKMAN makes it easy to manage
-    different versions of the other tools (it's support for JDKs is kind of messy).
-
 ## Significant differences from Holman's original dotfiles
 
-  - As suggested by [@rafaeleyng's dotfiles](https://github.com/rafaeleyng/dotfiles), 
+  - Sometimes the order in which things appear in the dotfiles (like zshrc)
+    matter. Sometimes the order in which things are installed also matters. To
+    help deal with this, I've prefixed all of the directories with a 2-digit
+    number, which controls the order of execution (much like init.d).
+
+  - As suggested by [rafaeleyng's dotfiles](https://github.com/rafaeleyng/dotfiles), 
     the `$ZSH` environment variable has been renamed to `$DOTFILES` so that I could 
     use oh-my-zsh.
+
+  - I'm using [asdf](https://asdf-vm.com/) to manage different runtime versions
+    for different platforms (Java, Ruby, Python, etc).
+
+  - Also inspired by `rafaeleyng's dotfiles`, I've added an `extensions` folder
+    where addtional dotfiles (for personal or for work) can be cloned into.
 
 # Holman's original README content 
 
