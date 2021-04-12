@@ -11,7 +11,6 @@ brew 'curl'
 brew 'docker'
 brew 'diffutils'
 brew 'fd'                        # Simple, fast, and user-friendly alternative to find
-brew 'ffmpeg'                    # powerful video conversion/endocing utility
 brew 'findutils'                 # classic GNU find
 brew 'gawk'                      # GNU awk
 brew 'git'                       # Should be installed when homebrew is installed, but this just makes it official
@@ -42,7 +41,6 @@ brew 'renameutils'               # provides icp and imv
 brew 'tree'                      # show directory structures on the commandline
 brew 'watch'                     # watch command that lets you run a command periodically, showing output in fullscreen
 brew 'wget'
-brew 'youtube-dl'
 brew 'yq'                        # like jq, for yaml
 brew 'zsh-syntax-highlighting'
 brew 'zsh'
@@ -53,8 +51,6 @@ cask 'google-chrome'
 cask 'insomnia'
 cask 'iterm2'
 cask 'lastpass'
-cask 'libreoffice'
 cask 'slack'
 cask 'spectacle'
-cask 'visual-studio-code'
 
