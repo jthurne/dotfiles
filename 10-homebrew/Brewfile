@@ -8,7 +8,6 @@ brew 'bash'
 brew 'bat'                       # cat
 brew 'coreutils'                 # https://apple.stackexchange.com/questions/69223/how-to-replace-mac-os-x-utilities-with-gnu-core-utilities
 brew 'curl'
-brew 'docker'
 brew 'diffutils'
 brew 'fd'                        # Simple, fast, and user-friendly alternative to find
 brew 'findutils'                 # classic GNU find
