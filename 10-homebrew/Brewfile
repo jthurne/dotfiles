@@ -29,6 +29,7 @@ brew 'imagemagick'
 brew 'jq'                        # json query
 brew 'lastpass-cli'              # Lastpass on the command line!
 brew 'kubernetes-cli'
+brew 'k9s'
 brew 'libgit2'
 brew 'mas'                       # Mac App Store command-line interface
 brew 'moreutils'                 # Yet more useful utility commands
@@ -38,6 +39,7 @@ brew 'pinentry-mac'              # Useful password entry -- needed to store gpg 
 brew 'poetry'                    # Python package management tool
 brew 'readline'                  # enables command-line editing with vi/emacs keybindings
 brew 'renameutils'               # provides icp and imv
+brew 'shellcheck'
 brew 'tree'                      # show directory structures on the commandline
 brew 'watch'                     # watch command that lets you run a command periodically, showing output in fullscreen
 brew 'wget'
@@ -47,10 +49,10 @@ brew 'zsh'
 
 cask 'docker'
 cask 'firefox'
+cask 'font-jetbrains-mono-nerd-font'
 cask 'google-chrome'
 cask 'insomnia'
 cask 'iterm2'
 cask 'lastpass'
 cask 'slack'
 cask 'spectacle'
-
