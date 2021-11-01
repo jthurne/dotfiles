@@ -12,6 +12,7 @@ brew 'diffutils'
 brew 'fd'                        # Simple, fast, and user-friendly alternative to find
 brew 'findutils'                 # classic GNU find
 brew 'gawk'                      # GNU awk
+brew 'gh'                        # The GitHub CLI
 brew 'git'                       # Should be installed when homebrew is installed, but this just makes it official
 brew 'git-delta'                 # Syntax-highlighting pager for git and diff output
 brew 'gnu-sed'
