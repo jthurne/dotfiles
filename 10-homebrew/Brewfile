@@ -33,7 +33,6 @@ brew 'k9s'
 brew 'libgit2'
 brew 'mas'                       # Mac App Store command-line interface
 brew 'moreutils'                 # Yet more useful utility commands
-brew 'node'                      # Node.JS
 brew 'openssl'
 brew 'pinentry-mac'              # Useful password entry -- needed to store gpg key passphrases in the Mac Keychain and such
 brew 'poetry'                    # Python package management tool
