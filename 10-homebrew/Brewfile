@@ -56,3 +56,5 @@ cask 'iterm2'
 cask 'lastpass'
 cask 'slack'
 cask 'spectacle'
+cask 'visualvm'
+
