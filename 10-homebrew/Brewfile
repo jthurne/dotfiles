@@ -10,6 +10,7 @@ brew 'coreutils'                 # https://apple.stackexchange.com/questions/692
 brew 'curl'
 brew 'diffutils'
 brew 'fd'                        # Simple, fast, and user-friendly alternative to find
+brew 'fx'                        # Function eXecution - a tool for viewing JSON and YAML
 brew 'findutils'                 # classic GNU find
 brew 'gawk'                      # GNU awk
 brew 'gh'                        # The GitHub CLI
