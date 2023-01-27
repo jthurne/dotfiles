@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/Users/jhurne/Projects/github/gradle/ge/support-app/support-app/src/main/resources'
-let g:netrw_dirhist_4='/Users/jhurne/Projects/github/gradle/gradle-enterprise-build-validation-scripts/build'
-let g:netrw_dirhist_3='/Users/jhurne/Projects/gradle/gradle-enterprise-build-config-samples/.github/workflows'
-let g:netrw_dirhist_2='/Users/jhurne/Projects/gradle/gradle-enterprise-build-config-samples_2/gradle-enterprise-conventions-gradle-plugin/example-builds/via-init-script/gradle_5.6'
-let g:netrw_dirhist_1='/Users/jhurne/Projects/gradle/gradle-enterprise-build-config-samples/experiments/lib/gradle'
