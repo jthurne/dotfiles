@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
 
 brew 'ack'                       # grep
 brew 'asdf'                      # One Version Manager To Rule Them All
