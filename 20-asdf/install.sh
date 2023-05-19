@@ -13,6 +13,5 @@ $asdf plugin-add python
 $asdf plugin-add ruby
 $asdf plugin-add gradle
 $asdf plugin-add sbt
-$asdf plugin-add groovy
 
 exit 0
