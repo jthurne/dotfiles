@@ -1,3 +1,6 @@
+#!/bin/sh
+scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
+
 if test ! "$(uname)" = "Darwin"
   then
   exit 0
@@ -10,3 +13,6 @@ fi
 echo
 echo "Updating Apps through the Mac App Store"
 sudo softwareupdate -i -a
+
+echo "Setting reasonable MacOS defaults"
+exec "${scriptdir}/set-defaults.sh"
