@@ -4,7 +4,7 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
-scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
 
 echo ""
 # Check for Homebrew
@@ -22,6 +22,6 @@ fi
 
 # Run Homebrew through the Brewfile
 echo "Updating/installing packages with Homebrew"
-brew bundle --file="$scriptdir/Brewfile"
+brew bundle --file="${script_dir}/Brewfile"
 
 exit 0
