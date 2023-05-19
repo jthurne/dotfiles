@@ -49,6 +49,7 @@ brew 'yq'                        # like jq, for yaml
 brew 'zsh-syntax-highlighting'
 brew 'zsh'
 
+cask 'clocker'
 cask 'firefox'
 cask 'font-jetbrains-mono-nerd-font'
 cask 'hot'
