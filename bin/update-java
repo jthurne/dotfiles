@@ -23,9 +23,10 @@ asdf install java "latest:${JDK20_PKG}"
 # Uninstall older versions
 uninstall_older() {
   jdk="$1"
-  older_versions="$(asdf list java ${jdk} | sed '$d' | tr -d '*' | xargs)"
+  older_versions="$(asdf list java ${jdk} | sed '$d' | tr -d '*')"
   if [ -n "${older_versions}" ]; then
-    while IFS=, read -r old_version; do
+    while read -r old_version; do
+      echo "Uninstalling ${old_version}"
       asdf uninstall java "${old_version}"
     done <<< "${older_versions}"
   fi
