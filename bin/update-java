@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# Updates to the latest versions of each major version of the JDK that I care about.
+#
+# Older JDKs will be automatically uninstalled
+# It is safe to run this script even if there is nothing to update.
+#
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")"; cd -P "$(dirname "$(readlink "${BASH_SOURCE[0]}" || echo .)")"; pwd)"
+
+source "${script_dir}/../50-java/jdks"
+
+echo "Installing the latest JDK versions"
+# Install the latest available versions
+asdf install java "latest:${JDK8_PKG}"
+asdf install java "latest:${JDK11_PKG}"
+asdf install java "latest:${JDK15_PKG}"
+asdf install java "latest:${JDK16_PKG}"
+asdf install java "latest:${JDK17_PKG}"
+asdf install java "latest:${JDK18_PKG}"
+asdf install java "latest:${JDK19_PKG}"
+asdf install java "latest:${JDK20_PKG}"
+
+# Uninstall older versions
+uninstall_older() {
+  jdk="$1"
+  older_versions="$(asdf list java ${jdk} | sed '$d' | tr -d '*' | xargs)"
+  if [ -n "${older_versions}" ]; then
+    while IFS=, read -r old_version; do
+      asdf uninstall java "${old_version}"
+    done <<< "${older_versions}"
+  fi
+}
+
+echo
+echo "Uninstalling older JDK versions"
+uninstall_older "${JDK8_PKG}"
+uninstall_older "${JDK11_PKG}"
+uninstall_older "${JDK15_PKG}"
+uninstall_older "${JDK16_PKG}"
+uninstall_older "${JDK17_PKG}"
+uninstall_older "${JDK18_PKG}"
+uninstall_older "${JDK19_PKG}"
+uninstall_older "${JDK20_PKG}"
+
+echo
+echo "Done! You will need to restart your shell if any changes were made."
