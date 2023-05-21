@@ -13,3 +13,7 @@ $asdf install java "latest:${JDK17_PKG}"
 $asdf install java "latest:${JDK18_PKG}"
 $asdf install java "latest:${JDK19_PKG}"
 $asdf install java "latest:${JDK20_PKG}"
+
+# Use Java 17 by default
+asdf global java "latest:${JDK17_PKG}"
+
