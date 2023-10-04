@@ -23,3 +23,5 @@ export JDK17="$(find_jdk ${JDK17_PKG})"
 export JDK18="$(find_jdk ${JDK18_PKG})"
 export JDK19="$(find_jdk ${JDK19_PKG})"
 export JDK20="$(find_jdk ${JDK20_PKG})"
+export JDK21="$(find_jdk ${JDK21_PKG})"
+

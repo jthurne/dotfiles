@@ -6,3 +6,5 @@ JDK17_PKG=temurin-17
 JDK18_PKG=temurin-18
 JDK19_PKG=temurin-19
 JDK20_PKG=temurin-20
+JDK21_PKG=openjdk-21
+
