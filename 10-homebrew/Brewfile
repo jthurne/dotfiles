@@ -30,7 +30,6 @@ brew 'gpg2'
 brew 'graphviz'                  # Create graphs and diagrams using a text-based DSL
 brew 'grep'                      # GNU grep
 brew 'gzip'
-brew 'hub'                       # CLI for GitHub
 brew 'imagemagick'
 brew 'jq'                        # json query
 brew 'k9s'
