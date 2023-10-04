@@ -58,8 +58,6 @@
         zeroPaddedFilemode = warn
 [help]
         autocorrect = 1
-[hub]
-        protocol = https
 [include]
         path = ~/.gitconfig.local
 [init]
@@ -89,4 +87,6 @@
 [transfer]
         # Check all fetched objects and abort in the case of a malformed object or a broken link
         fsckobjects = true
+[alias]
+  nb = "!f() { git fetch origin && git checkout -b ${1} origin/${2:-main}; }; f"
 
