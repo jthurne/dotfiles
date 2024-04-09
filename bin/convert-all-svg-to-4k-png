@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+convert_to_png() {
+  in_file="$1"
+  base_file=$(basename -- "${in_file}")
+  out_file="${in_file%.*} - 4k.png"
+  echo "Converting \"${in_file}\" to \"${out_file}\""
+  rsvg-convert -w 3840 -h 2160 -a "${in_file}" -o "${out_file}"
+}
+
+export -f convert_to_png
+
+find . -iname "*.svg" -exec bash -c "convert_to_png \"{}\"" \;
+
