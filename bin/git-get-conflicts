@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+merge_commit_hash=8686093
+
+parent1=$(git rev-parse $merge_commit_hash^1)
+parent2=$(git rev-parse $merge_commit_hash^2)
+
+echo "Parent 1: ${parent1}"
+echo "Parent 2: ${parent2}"
+
+git diff --name-only $parent1 $parent2
