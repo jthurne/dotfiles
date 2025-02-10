@@ -3,10 +3,6 @@
 script_dir=${0:a:h}
 source "${script_dir}/jdks"
 
-# Need to source asdf otherwise weird errors are thrown when this script is called when starting a new shell
-asdf_home=$(brew --prefix asdf)
-source "${asdf_home}/libexec/asdf.sh"
-
 find_jdk() {
   version=$1
   # tr -d removes the "*" that asdf prefixes the current java version
