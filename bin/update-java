@@ -33,8 +33,8 @@ uninstall_older() {
   fi
 }
 
-# Always use Java 17 by default
-asdf global java "latest:${JDK17_PKG}"
+# Always use Java 21 by default
+asdf set --home java "latest:${JDK21_PKG}"
 
 echo
 echo "Uninstalling older JDK versions"
