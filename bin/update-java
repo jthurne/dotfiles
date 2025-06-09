@@ -24,7 +24,8 @@ asdf install java "latest:${JDK21_PKG}"
 # Uninstall older versions
 uninstall_older() {
   jdk="$1"
-  older_versions="$(asdf list java ${jdk} | sed '$d' | tr -d '*')"
+  latest_version="$(asdf latest java ${jdk})"
+  older_versions="$(asdf list java ${jdk} | grep -v "${latest_version}" | tr -d '*')"
   if [ -n "${older_versions}" ]; then
     while read -r old_version; do
       echo "Uninstalling ${old_version}"
