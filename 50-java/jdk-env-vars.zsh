@@ -13,11 +13,7 @@ find_jdk() {
 
 export JDK8="$(find_jdk ${JDK8_PKG})"
 export JDK11="$(find_jdk ${JDK11_PKG})"
-export JDK15="$(find_jdk ${JDK15_PKG})"
-export JDK16="$(find_jdk ${JDK16_PKG})"
 export JDK17="$(find_jdk ${JDK17_PKG})"
-export JDK18="$(find_jdk ${JDK18_PKG})"
-export JDK19="$(find_jdk ${JDK19_PKG})"
-export JDK20="$(find_jdk ${JDK20_PKG})"
 export JDK21="$(find_jdk ${JDK21_PKG})"
+export JDK25="$(find_jdk ${JDK25_PKG})"
 

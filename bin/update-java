@@ -13,13 +13,9 @@ echo "Installing the latest JDK versions"
 # Install the latest available versions
 asdf install java "latest:${JDK8_PKG}"
 asdf install java "latest:${JDK11_PKG}"
-asdf install java "latest:${JDK15_PKG}"
-asdf install java "latest:${JDK16_PKG}"
 asdf install java "latest:${JDK17_PKG}"
-asdf install java "latest:${JDK18_PKG}"
-asdf install java "latest:${JDK19_PKG}"
-asdf install java "latest:${JDK20_PKG}"
 asdf install java "latest:${JDK21_PKG}"
+asdf install java "latest:${JDK25_PKG}"
 
 # Uninstall older versions
 uninstall_older() {
@@ -35,19 +31,16 @@ uninstall_older() {
 }
 
 # Always use Java 21 by default
-asdf set --home java "latest:${JDK21_PKG}"
+asdf set --home java "latest:${JDK25_PKG}"
 
 echo
 echo "Uninstalling older JDK versions"
 uninstall_older "${JDK8_PKG}"
 uninstall_older "${JDK11_PKG}"
-uninstall_older "${JDK15_PKG}"
-uninstall_older "${JDK16_PKG}"
 uninstall_older "${JDK17_PKG}"
-uninstall_older "${JDK18_PKG}"
-uninstall_older "${JDK19_PKG}"
-uninstall_older "${JDK20_PKG}"
 uninstall_older "${JDK21_PKG}"
+uninstall_older "${JDK25_PKG}"
 
 echo
 echo "Done! You will need to restart your shell if any changes were made."
+

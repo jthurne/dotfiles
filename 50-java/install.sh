@@ -7,13 +7,10 @@ asdf=$ASDF_HOME/bin/asdf
 
 $asdf install java "latest:${JDK8_PKG}"
 $asdf install java "latest:${JDK11_PKG}"
-$asdf install java "latest:${JDK15_PKG}"
-$asdf install java "latest:${JDK16_PKG}"
 $asdf install java "latest:${JDK17_PKG}"
-$asdf install java "latest:${JDK18_PKG}"
-$asdf install java "latest:${JDK19_PKG}"
-$asdf install java "latest:${JDK20_PKG}"
+$asdf install java "latest:${JDK21_PKG}"
+$asdf install java "latest:${JDK25_PKG}"
 
-# Use Java 17 by default
-asdf global java "latest:${JDK17_PKG}"
+# Use Java 25 by default
+asdf set -u java "latest:${JDK25_PKG}"
 
