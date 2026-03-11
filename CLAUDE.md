@@ -30,7 +30,7 @@ The loading logic lives in `70-zsh/zshrc.symlink`, which globs `$DOTFILES/**/*.z
 
 ### Extensions
 
-The `extensions/` directory holds additional dotfile sets (e.g., work-specific or private configs). These follow the same conventions and are included in symlink installation. Current extensions: `common-private`, `gradle`.
+The `extensions/` directory holds additional dotfile sets (e.g., work-specific or private configs). These follow the same conventions and are included in symlink installation. Each extension is its own git repository — always commit changes in the correct repo. Current extensions: `ai-agents`, `common-private`, `gradle`.
 
 ### Key environment variables
 
