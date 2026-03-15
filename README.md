@@ -27,8 +27,42 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
   - Also inspired by `rafaeleyng's dotfiles`, I've added an `extensions` folder
     where addtional dotfiles (for personal or for work) can be cloned into.
+    See [Extensions](#extensions) below for details.
 
-# Holman's original README content 
+## Extensions
+
+Extensions are separate git repositories that live in the `extensions/` directory.
+They follow the same topic-based conventions as the main dotfiles (numbered
+directories, `*.zsh`, `*.symlink`, `install.sh`, etc.) and are automatically
+included when you run `scripts/install-dotfiles` or `scripts/install-packages`.
+
+Manage extensions with `scripts/extensions`:
+
+```sh
+# Create a new extension (initializes a repo and creates it on GitHub)
+scripts/extensions create <name>
+
+# Add an existing extension (clones from GitHub)
+scripts/extensions add <name> [git-url]
+# If no URL is given, defaults to git@github.com:jthurne/dotfiles-<name>.git
+
+# Show git status for all extensions
+scripts/extensions status
+
+# Pull latest changes for all extensions
+scripts/extensions update
+
+# Push all extensions that have unpushed commits
+scripts/extensions push
+
+# Remove a local extension (does not delete the remote repo)
+scripts/extensions remove <name>
+```
+
+After adding an extension, run `scripts/install-dotfiles` to symlink its
+dotfiles and `scripts/install-packages` to run any `install.sh` scripts.
+
+# Holman's original README content
 
 The sections below are from Holman's original README. I'm leaving it here for
 ease-of-reference, but note that I didn't write it.

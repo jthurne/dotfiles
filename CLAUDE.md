@@ -11,12 +11,7 @@ This is a personal dotfiles repository for macOS, forked from [Zach Holman's dot
 - `scripts/install-dotfiles` - Symlinks `*.symlink` files to `$HOME` (as dotfiles) and sets up gitconfig
 - `scripts/install-packages` - Runs all `install.sh` scripts found in topic directories (sorted by directory name)
 - `bin/set-defaults` - Applies macOS system defaults
-- `scripts/create-extension <name>` - Initialize a new extension repo and create it on GitHub
-- `scripts/add-extension <name> [git-url]` - Clone an existing extension repo (defaults to `jthurne/dotfiles-<name>`)
-- `scripts/remove-extension <name>` - Remove a local extension (preserves the remote repo)
-- `scripts/status-extensions` - Show git status summary for all extensions
-- `scripts/update-extensions` - Pull latest changes for all extensions
-- `scripts/push-extensions` - Push all extensions that have unpushed commits
+- `scripts/extensions <command>` - Manage extensions (`create`, `add`, `remove`, `status`, `update`, `push`)
 
 ## Architecture
 
