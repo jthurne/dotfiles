@@ -23,7 +23,7 @@ Directories are prefixed with two-digit numbers (e.g., `10-homebrew`, `50-git`, 
 - `topic/path.zsh` — Loaded **first**; sets up `$PATH`
 - `topic/*.zsh` — Loaded **second**; general shell configuration (aliases, env vars, etc.)
 - `topic/completion.zsh` — Loaded **last**, after `compinit`
-- `topic/install.sh` — Run by `scripts/install-packages`; uses `.sh` extension to avoid auto-loading. Scripts should be idempotent — re-running updates already-installed tools rather than skipping them.
+- `topic/install.sh` — Run by `scripts/install-packages`; uses `.sh` extension to avoid auto-loading. Scripts should be idempotent — re-running updates already-installed tools rather than skipping them. When installing multiple Homebrew packages, use a `Brewfile` in the same directory and run `brew bundle --file="${script_dir}/Brewfile"` rather than multiple `brew install` calls.
 - `topic/*.symlink` — Symlinked to `$HOME/.{name}` by `scripts/install-dotfiles` (e.g., `gitconfig.symlink` → `~/.gitconfig`)
 
 The loading logic lives in `70-zsh/zshrc.symlink`, which globs `$DOTFILES/**/*.zsh`.
