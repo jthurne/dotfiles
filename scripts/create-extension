@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+#
+# Create a new extension: initialize a git repo in extensions/ and create
+# a matching remote on GitHub.
+#
+# Usage: scripts/create-extension <name>
+#   e.g. scripts/create-extension work-private
+
+set -e
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+if [ -z "$1" ]; then
+  echo "Usage: scripts/create-extension <name>"
+  echo "  e.g. scripts/create-extension work-private"
+  exit 1
+fi
+
+name="$1"
+ext_dir="$DOTFILES_ROOT/extensions/$name"
+repo_name="dotfiles-$name"
+
+if [ -d "$ext_dir" ]; then
+  echo "Error: extension '$name' already exists at $ext_dir"
+  exit 1
+fi
+
+echo "Creating extension '$name'..."
+
+mkdir -p "$ext_dir"
+git -C "$ext_dir" init
+
+cat > "$ext_dir/README.md" << EOF
+# dotfiles-$name
+
+Dotfiles extension: $name
+
+Part of [dotfiles](https://github.com/jthurne/dotfiles). See the main repo for conventions.
+EOF
+
+git -C "$ext_dir" add -A
+git -C "$ext_dir" commit -m "Initial commit"
+
+echo ""
+echo "Creating GitHub repo '$repo_name'..."
+gh repo create "jthurne/$repo_name" --private --source="$ext_dir" --remote=origin --push
+
+echo ""
+echo "Extension '$name' created at $ext_dir"
+echo "Remote: git@github.com:jthurne/$repo_name.git"

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Pull latest changes for all extensions.
+#
+# Usage: scripts/update-extensions
+
+set -e
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+ext_base="$DOTFILES_ROOT/extensions"
+
+if [ ! -d "$ext_base" ]; then
+  echo "No extensions directory found."
+  exit 0
+fi
+
+for ext_dir in "$ext_base"/*/; do
+  [ -d "$ext_dir/.git" ] || continue
+  name=$(basename "$ext_dir")
+  echo "Pulling $name..."
+  git -C "$ext_dir" pull --rebase
+  echo ""
+done
+
+echo "All extensions updated."

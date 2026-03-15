@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+# Push all extensions that have commits ahead of their remote.
+#
+# Usage: scripts/push-extensions
+
+set -e
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+ext_base="$DOTFILES_ROOT/extensions"
+
+if [ ! -d "$ext_base" ]; then
+  echo "No extensions directory found."
+  exit 0
+fi
+
+for ext_dir in "$ext_base"/*/; do
+  [ -d "$ext_dir/.git" ] || continue
+  name=$(basename "$ext_dir")
+
+  # Check if there are unpushed commits
+  ahead=$(git -C "$ext_dir" rev-list --count @{upstream}..HEAD 2>/dev/null || echo "unknown")
+
+  if [ "$ahead" = "unknown" ]; then
+    echo "$name: no upstream configured, skipping"
+  elif [ "$ahead" -gt 0 ]; then
+    echo "$name: pushing $ahead commit(s)..."
+    git -C "$ext_dir" push
+  else
+    echo "$name: up to date"
+  fi
+done
+
+echo ""
+echo "Done."
