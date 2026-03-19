@@ -43,6 +43,14 @@ The `extensions/` directory holds additional dotfile sets (e.g., work-specific o
 - `bin/` is added to `$PATH` — scripts here are available as commands
 - `functions/` contains zsh autoload functions and completions
 
+## Git Operations
+
+Always verify you are in the correct git repository/worktree directory before running git commands (commit, push) or editing files. Run `pwd` and `git remote -v` to confirm.
+
+## Dotfiles Repository Conventions
+
+When working in dotfiles repos, always follow existing patterns (e.g., Brewfile for dependencies, consistent directory structure for extensions). Check existing files before creating new ones.
+
 ## Git workflow
 
 Use `gs` (git-spice) for all branch and PR operations — see global `~/.claude/CLAUDE.md` for the full command reference. Do not use raw `git checkout -b` or `gh pr create`.
