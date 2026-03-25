@@ -87,4 +87,5 @@ creating a new one:
 | Directory | Repository |
 |---|---|
 | `50-gws/` | `https://github.com/googleworkspace/cli` (Google Workspace skills) |
+| `50-playwright-cli/` | `https://github.com/microsoft/playwright-cli` (Playwright CLI skills) |
 | `50-rnett-agents/` | `git@github.com:gradle/rnett.agents.git` (DV authoring/testing skills) |
