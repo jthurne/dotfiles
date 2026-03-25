@@ -17,7 +17,7 @@ script so it gets installed automatically during setup.
 
 ## Key files
 
-All paths are relative to the ai-agents extension repo (`~/.dotfiles/extensions/ai-agents/50-claude-code/`):
+All paths are relative to the gradle-ai-agents extension repo (`~/.dotfiles/extensions/gradle-ai-agents/50-claude-code/`):
 
 - **Install script**: `install.sh` — contains shell arrays of plugin names, grouped by marketplace
 - **Plugin registry**: `claude.symlink/plugins/installed_plugins.json` — Claude Code's record of installed plugins
@@ -48,7 +48,7 @@ Add the plugin name (without the `@marketplace` suffix) to the end of the approp
 
 ### 4. Commit the changes
 
-Commit exactly these three files in the ai-agents extension repo (`~/.dotfiles/extensions/ai-agents/`):
+Commit exactly these three files in the gradle-ai-agents extension repo (`~/.dotfiles/extensions/gradle-ai-agents/`):
 
 ```
 50-claude-code/install.sh

@@ -19,7 +19,7 @@ automatically on a fresh machine.
 
 ## Key locations
 
-- **Install scripts**: `~/.dotfiles/extensions/ai-agents/` — each `*/install.sh` installs skills from a specific repo
+- **Install scripts**: `~/.dotfiles/extensions/gradle-ai-agents/` — each `*/install.sh` installs skills from a specific repo
 - **Installed skills**: `~/.claude/skills/` — where skills are installed locally
 
 ## Steps
@@ -36,7 +36,7 @@ If you can't determine either piece, ask the user.
 
 ### 2. Find or create the matching install script
 
-Scan install scripts in `~/.dotfiles/extensions/ai-agents/*/install.sh` for one that
+Scan install scripts in `~/.dotfiles/extensions/gradle-ai-agents/*/install.sh` for one that
 already references the same repository (look for the `REPO=` variable matching the
 GitHub org/repo).
 
@@ -75,8 +75,8 @@ Run the install script with `bash <path-to-script>` to actually install the skil
 
 ### 4. Commit the changes
 
-Commit the modified or new install script in the ai-agents extension repo
-(`~/.dotfiles/extensions/ai-agents/`). Use a commit message like:
+Commit the modified or new install script in the gradle-ai-agents extension repo
+(`~/.dotfiles/extensions/gradle-ai-agents/`). Use a commit message like:
 `Add <skill-name> skill to install script`
 
 ## Existing install scripts for reference

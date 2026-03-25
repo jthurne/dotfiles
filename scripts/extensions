@@ -22,8 +22,11 @@ usage() {
   echo "Usage: scripts/extensions <command> [args]"
   echo ""
   echo "Commands:"
-  echo "  create <name>          Initialize a new extension repo and create it on GitHub"
-  echo "  add <name> [git-url]   Clone an existing extension repo (defaults to jthurne/dotfiles-<name>)"
+  echo "  create <name> [--org <org>] [--repo <repo-name>]"
+  echo "                         Initialize a new extension repo and create it on GitHub"
+  echo "                         (defaults to org=jthurne, repo=dotfiles-<name>)"
+  echo "  add <name> [git-url]   Clone an existing extension repo"
+  echo "                         (defaults to git@github.com:jthurne/dotfiles-<name>.git)"
   echo "  remove <name>          Remove a local extension (preserves the remote repo)"
   echo "  status                 Show git status summary for all extensions"
   echo "  update                 Pull latest changes for all extensions"
@@ -32,14 +35,24 @@ usage() {
 }
 
 cmd_create() {
-  if [ -z "$1" ]; then
-    echo "Usage: scripts/extensions create <name>"
+  local name="" org="jthurne" repo_name=""
+
+  while [ $# -gt 0 ]; do
+    case "$1" in
+      --org)  org="$2"; shift 2 ;;
+      --repo) repo_name="$2"; shift 2 ;;
+      -*)     echo "Unknown flag: $1"; exit 1 ;;
+      *)      name="$1"; shift ;;
+    esac
+  done
+
+  if [ -z "$name" ]; then
+    echo "Usage: scripts/extensions create <name> [--org <org>] [--repo <repo-name>]"
     exit 1
   fi
 
-  local name="$1"
+  repo_name="${repo_name:-dotfiles-$name}"
   local ext_dir="$EXT_BASE/$name"
-  local repo_name="dotfiles-$name"
 
   if [ -d "$ext_dir" ]; then
     echo "Error: extension '$name' already exists at $ext_dir"
@@ -52,23 +65,23 @@ cmd_create() {
   git -C "$ext_dir" init
 
   cat > "$ext_dir/README.md" << EOF
-# dotfiles-$name
+# $repo_name
 
 Dotfiles extension: $name
 
-Part of [dotfiles](https://github.com/jthurne/dotfiles). See the main repo for conventions.
+Part of [dotfiles](https://github.com/$org/dotfiles). See the main repo for conventions.
 EOF
 
   git -C "$ext_dir" add -A
   git -C "$ext_dir" commit -m "Initial commit"
 
   echo ""
-  echo "Creating GitHub repo '$repo_name'..."
-  gh repo create "jthurne/$repo_name" --private --source="$ext_dir" --remote=origin --push
+  echo "Creating GitHub repo '$org/$repo_name'..."
+  gh repo create "$org/$repo_name" --private --source="$ext_dir" --remote=origin --push
 
   echo ""
   echo "Extension '$name' created at $ext_dir"
-  echo "Remote: git@github.com:jthurne/$repo_name.git"
+  echo "Remote: git@github.com:$org/$repo_name.git"
 }
 
 cmd_add() {
