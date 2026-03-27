@@ -12,7 +12,11 @@ find . -name install.sh \
   | awk -F/ '{print $(NF-1), $0}' \
   | sort \
   | cut -d' ' -f2- \
-  | while read installer ; do "${installer}" ; done
+  | while read installer ; do
+    echo ""
+    echo "› Running ${installer#./}..."
+    "${installer}"
+  done
 
 echo
 echo "DONE!"
