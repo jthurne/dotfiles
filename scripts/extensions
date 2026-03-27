@@ -18,6 +18,14 @@ cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 EXT_BASE="$DOTFILES_ROOT/extensions"
 
+run_gh() {
+  if [ -n "$GH_TOKEN" ]; then
+    gh "$@"
+  else
+    op plugin run -- gh "$@"
+  fi
+}
+
 usage() {
   echo "Usage: scripts/extensions <command> [args]"
   echo ""
@@ -77,7 +85,7 @@ EOF
 
   echo ""
   echo "Creating GitHub repo '$org/$repo_name'..."
-  gh repo create "$org/$repo_name" --private --source="$ext_dir" --remote=origin --push
+  run_gh repo create "$org/$repo_name" --private --source="$ext_dir" --remote=origin --push
 
   echo ""
   echo "Extension '$name' created at $ext_dir"
