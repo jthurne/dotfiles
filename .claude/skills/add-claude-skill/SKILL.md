@@ -8,19 +8,26 @@ user_invocable: true
 
 ## Overview
 
-Skills are installed via `npx skills add` in install scripts under `extensions/gradle-ai-agents/`. Each source repo gets its own install directory (e.g., `50-rnett-agents/`, `50-gws/`). Installed skills are symlinked into `~/.claude/skills/` and must be excluded from git tracking.
+Skills are installed via `npx skills add` in install scripts under `extensions/*-ai-agents/`. Each source repo gets its own install directory (e.g., `50-rnett-agents/`, `50-gws/`). Installed skills are symlinked into `~/.claude/skills/` and must be excluded from git tracking.
+
+AI agent tooling is split across multiple extensions by scope:
+- `common-ai-agents` — shared across all projects (both work and personal machines)
+- `gradle-ai-agents` — Gradle/DV work-specific (work machine only)
+- `personal-ai-agents` — personal projects (personal machine only)
+
+Not all extensions exist on every machine. Check which `*-ai-agents` extensions are present before proceeding.
 
 ## Steps to Add a New Skill
 
 ### 1. Determine which install script to use
 
-- Check `extensions/gradle-ai-agents/` for an existing directory matching the source repo
+- Scan `extensions/*-ai-agents/*/install.sh` for an existing directory matching the source repo (look for `REPO=` matching the GitHub org/repo)
 - If the skill comes from a repo that already has an install script, add to its `SKILLS` array
-- If the skill comes from a new repo, create a new directory (e.g., `50-<name>/install.sh`)
+- If the skill comes from a new repo, create a new directory (e.g., `50-<name>/install.sh`) in the appropriate extension. Ask the user which extension if it's not obvious.
 
 ### 2. Update or create the install script
 
-**For a new repo**, create `extensions/gradle-ai-agents/50-<name>/install.sh`:
+**For a new repo**, create `extensions/<extension>/50-<name>/install.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -48,7 +55,14 @@ exit 0
 
 ### 3. Add the skill to .gitignore
 
-Edit `extensions/gradle-ai-agents/50-claude-code/claude.symlink/.gitignore` and add the skill name under the existing exclusion comment:
+Find whichever extension provides `50-claude-code/claude.symlink/` (this varies by machine — `gradle-ai-agents` on work machines, `personal-ai-agents` on personal machines). Edit its `.gitignore`:
+
+```bash
+# Find the right .gitignore
+ls extensions/*-ai-agents/50-claude-code/claude.symlink/.gitignore
+```
+
+Add the skill name under the existing exclusion comment:
 
 ```gitignore
 # Ignore skills installed by npx (symlinks to ~/.agents/skills/)
@@ -56,17 +70,16 @@ skills/gws-*
 skills/<new_skill_name>
 ```
 
-This prevents the installed symlink/copy in `~/.claude/skills/` from being committed to the gradle-ai-agents extension repo.
+This prevents the installed symlink/copy in `~/.claude/skills/` from being committed.
 
 ### 4. Run the install script and verify
 
 ```bash
-cd extensions/gradle-ai-agents/50-<name>
-zsh install.sh
+bash extensions/<extension>/50-<name>/install.sh
 ```
 
 Verify the skill appears in `~/.claude/skills/`.
 
-### 5. Commit changes in the gradle-ai-agents extension repo
+### 5. Commit changes in the correct extension repo
 
-Changes go in `extensions/gradle-ai-agents/` which is a **separate git repo** (`dv-user-jthurne-dotfiles-ai-agents`). Commit the install script and .gitignore changes there, not in the main dotfiles repo.
+Each extension is its own git repo. Commit the install script in whichever extension it was added to, and commit .gitignore changes in whichever extension provides `claude.symlink`. These may be different repos — verify with `git -C extensions/<name> remote -v` before committing.
