@@ -17,11 +17,12 @@ script so it gets installed automatically during setup.
 
 ## Key files
 
-All paths are relative to the gradle-ai-agents extension repo (`~/.dotfiles/extensions/gradle-ai-agents/50-claude-code/`):
+Plugin installation is split across two extensions:
 
-- **Install script**: `install.sh` — contains shell arrays of plugin names, grouped by marketplace
-- **Plugin registry**: `claude.symlink/plugins/installed_plugins.json` — Claude Code's record of installed plugins
-- **Settings**: `claude.symlink/settings.json` — plugin enable/disable state
+- **Common install script**: `~/.dotfiles/extensions/common-ai-agents/50-claude-code/install.sh` — official marketplace and plugins shared across projects
+- **Work-specific install script**: `~/.dotfiles/extensions/gradle-ai-agents/50-claude-code/install.sh` — Gradle/DV marketplace and plugins
+- **Plugin registry**: `~/.dotfiles/extensions/gradle-ai-agents/50-claude-code/claude.symlink/plugins/installed_plugins.json` — Claude Code's record of installed plugins
+- **Settings**: `~/.dotfiles/extensions/gradle-ai-agents/50-claude-code/claude.symlink/settings.json` — plugin enable/disable state
 
 ## Steps
 
@@ -33,29 +34,29 @@ If the user specifies a plugin name, use that directly instead of diffing.
 
 ### 2. Determine the marketplace
 
-Each key in `installed_plugins.json` has the format `plugin-name@marketplace-name`. Map the marketplace to the correct array in `install.sh`:
+Each key in `installed_plugins.json` has the format `plugin-name@marketplace-name`. Map the marketplace to the correct install script:
 
-| Marketplace | Array in install.sh |
-|---|---|
-| `claude-plugins-official` | `OFFICIAL_PLUGINS` |
-| `dv-claude-marketplace` | `DV_PLUGINS` |
+| Marketplace | Install script | Array |
+|---|---|---|
+| `claude-plugins-official` | `common-ai-agents/50-claude-code/install.sh` | `OFFICIAL_PLUGINS` |
+| `dv-claude-marketplace` | `gradle-ai-agents/50-claude-code/install.sh` | `DV_PLUGINS` |
 
-If the plugin belongs to an unrecognized marketplace, ask the user how to handle it — they may need to add a new marketplace registration and array to the script.
+If the plugin belongs to an unrecognized marketplace, ask the user how to handle it — they may need to add a new marketplace registration and array to the appropriate script.
 
 ### 3. Edit install.sh
 
-Add the plugin name (without the `@marketplace` suffix) to the end of the appropriate array in `install.sh`. Use the Edit tool to make the change.
+Add the plugin name (without the `@marketplace` suffix) to the end of the appropriate array in the correct install script (see marketplace table above). Use the Edit tool to make the change.
 
 ### 4. Commit the changes
 
-Commit exactly these three files in the gradle-ai-agents extension repo (`~/.dotfiles/extensions/gradle-ai-agents/`):
+Commit the changed files in the correct extension repo(s):
 
-```
-50-claude-code/install.sh
-50-claude-code/claude.symlink/plugins/installed_plugins.json
-50-claude-code/claude.symlink/settings.json
-```
+- If the plugin is from `claude-plugins-official`: commit `50-claude-code/install.sh` in `~/.dotfiles/extensions/common-ai-agents/`
+- If the plugin is from `dv-claude-marketplace`: commit `50-claude-code/install.sh` in `~/.dotfiles/extensions/gradle-ai-agents/`
+- Always commit the plugin registry and settings in `~/.dotfiles/extensions/gradle-ai-agents/`:
+  - `50-claude-code/claude.symlink/plugins/installed_plugins.json`
+  - `50-claude-code/claude.symlink/settings.json`
 
 Use a commit message like: `Add <plugin-name> plugin to install script and settings`
 
-If multiple plugins are being persisted, combine them into one commit.
+If multiple plugins are being persisted, combine them into one commit per repo.
