@@ -33,6 +33,8 @@ The loading logic lives in `70-zsh/zshrc.symlink`, which globs `$DOTFILES/**/*.z
 
 The `extensions/` directory holds additional dotfile sets (e.g., work-specific or private configs). These follow the same conventions and are included in symlink installation. Each extension is its own git repository — always commit changes in the correct repo. Current extensions: `common-ai-agents`, `common-private`, `gradle`, `gradle-ai-agents`.
 
+AI agent tooling is split across `*-ai-agents` extensions by scope: `common-ai-agents` (shared across all projects), `gradle-ai-agents` (Gradle/DV work-specific), and `personal-ai-agents` (personal projects, planned). When adding new AI tools, place them in the appropriate extension based on scope.
+
 ### Key environment variables
 
 - `$DOTFILES` — Points to `~/.dotfiles` (set in `zshrc.symlink`)

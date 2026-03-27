@@ -19,8 +19,10 @@ automatically on a fresh machine.
 
 ## Key locations
 
-- **Common install scripts**: `~/.dotfiles/extensions/common-ai-agents/` — skills shared across work and personal projects
-- **Work-specific install scripts**: `~/.dotfiles/extensions/gradle-ai-agents/` — Gradle/DV-specific skills
+- **Install scripts**: `~/.dotfiles/extensions/*/install.sh` — each `*-ai-agents` extension may contain skill install scripts
+  - `common-ai-agents` — shared across all projects
+  - `gradle-ai-agents` — Gradle/DV work-specific
+  - `personal-ai-agents` — personal projects only
 - **Installed skills**: `~/.claude/skills/` — where skills are installed locally
 
 ## Steps
@@ -37,20 +39,22 @@ If you can't determine either piece, ask the user.
 
 ### 2. Find or create the matching install script
 
-Scan install scripts in both extension directories for one that already references the
-same repository (look for the `REPO=` variable matching the GitHub org/repo):
-- `~/.dotfiles/extensions/common-ai-agents/*/install.sh`
-- `~/.dotfiles/extensions/gradle-ai-agents/*/install.sh`
+Scan install scripts across all `*-ai-agents` extensions for one that already references
+the same repository (look for the `REPO=` variable matching the GitHub org/repo):
+- `~/.dotfiles/extensions/*-ai-agents/*/install.sh`
 
 **If a matching script exists:** Add the new skill name to its `SKILLS` array, maintaining
 alphabetical order within the array (or matching the existing ordering convention if it
 differs). Use the Edit tool.
 
 **If no matching script exists:** Create a new directory and install script in the
-appropriate extension — use `common-ai-agents` for tools shared across projects,
-`gradle-ai-agents` for Gradle/DV-specific tools. Use the repo name or a short
-descriptor for the directory name (e.g., `50-myorg-tools/install.sh`). Follow this
-template:
+appropriate extension. Ask the user which extension if it's not obvious. Guidelines:
+- `common-ai-agents` — tools shared across all projects
+- `gradle-ai-agents` — Gradle/DV work-specific tools
+- `personal-ai-agents` — personal project tools
+
+Use the repo name or a short descriptor for the directory name
+(e.g., `50-myorg-tools/install.sh`). Follow this template:
 
 ```bash
 #!/usr/bin/env bash
@@ -80,7 +84,7 @@ Run the install script with `bash <path-to-script>` to actually install the skil
 ### 4. Commit the changes
 
 Commit the modified or new install script in the correct extension repo
-(`~/.dotfiles/extensions/common-ai-agents/` or `~/.dotfiles/extensions/gradle-ai-agents/`).
+(`~/.dotfiles/extensions/<extension-name>/`). Each extension is its own git repo.
 Use a commit message like: `Add <skill-name> skill to install script`
 
 ## Existing install scripts for reference
