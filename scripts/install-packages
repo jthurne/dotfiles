@@ -8,15 +8,15 @@ cd "$(dirname $0)"/..
 
 # Find the installers and sort by parent directory's numeric prefix so that
 # e.g. extensions/common-private/10-homebrew runs before extensions/gradle-ai-agents/50-*
-find . -name install.sh \
+# Read from fd 3 so that installers can freely use stdin without consuming the list.
+while read -r -u 3 installer ; do
+  echo ""
+  echo "› Running ${installer#./}..."
+  "${installer}" || echo "⚠ ${installer#./} exited with status $?, continuing..."
+done 3< <(find . -name install.sh \
   | awk -F/ '{print $(NF-1), $0}' \
   | sort \
-  | cut -d' ' -f2- \
-  | while read installer ; do
-    echo ""
-    echo "› Running ${installer#./}..."
-    "${installer}"
-  done
+  | cut -d' ' -f2-)
 
 echo
 echo "DONE!"
