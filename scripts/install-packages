@@ -6,8 +6,13 @@ set -e
 
 cd "$(dirname $0)"/..
 
-# find the installers and run them iteratively
-find . -name install.sh | sort | while read installer ; do "${installer}" ; done
+# Find the installers and sort by parent directory's numeric prefix so that
+# e.g. extensions/common-private/10-homebrew runs before extensions/gradle-ai-agents/50-*
+find . -name install.sh \
+  | awk -F/ '{print $(NF-1), $0}' \
+  | sort \
+  | cut -d' ' -f2- \
+  | while read installer ; do "${installer}" ; done
 
 echo
 echo "DONE!"
