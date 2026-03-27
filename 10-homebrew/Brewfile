@@ -54,6 +54,5 @@ cask 'font-jetbrains-mono-nerd-font'
 cask 'hot'
 cask 'insomnia'
 cask 'iterm2'
-cask 'spectacle'
 cask 'visualvm'
 
