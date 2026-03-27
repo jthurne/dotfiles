@@ -20,7 +20,6 @@ brew 'gh'                        # The GitHub CLI
 brew 'git'                       # Should be installed when homebrew is installed, but this just makes it official
 brew 'git-delta'                 # Syntax-highlighting pager for git and diff output
 brew 'git-filter-repo'           # Very useful for doing large history transformations
-brew 'gng'                       # A nice utility to make it easier to invoke Gradle
 brew 'gnu-sed'
 brew 'gnu-tar'
 brew 'gnu-which'
