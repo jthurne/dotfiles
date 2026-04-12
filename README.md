@@ -100,6 +100,26 @@ There's a few special files in the hierarchy.
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/install-dotfiles`.
 
+## extension utility scripts
+
+Extensions can provide utility scripts that are available on `$PATH` by following this convention:
+
+```
+extensions/my-extension/
+├── bin/
+│   └── my-script
+└── 10-init/
+    └── path.zsh
+```
+
+The `10-init/path.zsh` file adds the extension's `bin/` directory to `$PATH` using a portable reference to the extension root:
+
+```zsh
+export PATH="${0:h:h}/bin:$PATH"
+```
+
+`${0:h:h}` resolves two directory levels up from the sourced file (the extension root), so this works regardless of where `~/.dotfiles` lives on a given machine. The `10-init` directory name ensures the path is configured before any other topics in the extension load.
+
 ## install
 
 Run this:

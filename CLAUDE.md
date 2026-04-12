@@ -45,6 +45,25 @@ AI agent tooling is split across `*-ai-agents` extensions by scope: `common-ai-a
 - `bin/` is added to `$PATH` — scripts here are available as commands
 - `functions/` contains zsh autoload functions and completions
 
+### Extension utility scripts (bin/ convention)
+
+Extensions can expose utility scripts by placing them in a `bin/` directory at the extension root, paired with a `10-init/path.zsh` that adds the directory to `$PATH`:
+
+```
+extensions/my-extension/
+├── bin/
+│   └── my-script
+└── 10-init/
+    └── path.zsh    ← uses ${0:h:h}/bin to reference the extension root
+```
+
+The `path.zsh` should contain:
+```zsh
+export PATH="${0:h:h}/bin:$PATH"
+```
+
+`${0:h:h}` resolves two levels up from the sourced file (extension root), making the path portable across machines. The `10-init` directory name ensures the path is set up before any other topics in the extension load.
+
 ## Git Operations
 
 Always verify you are in the correct git repository/worktree directory before running git commands (commit, push) or editing files. Run `pwd` and `git remote -v` to confirm.
