@@ -37,3 +37,7 @@ bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
+
+# unbind Ctrl-O to avoid conficts with AI CLIs
+bindkey -r "^O"
+
