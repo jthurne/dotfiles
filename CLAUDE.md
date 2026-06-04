@@ -44,6 +44,8 @@ AI agent tooling is split across `*-ai-agents` extensions by scope: `common-ai-a
 
 When modifying global Claude settings (`settings.json`, skills, `CLAUDE.md`, commands, or project memory), commit in the **correct extension repo for this machine** — run `ls -la ~/.claude` to confirm which one it is.
 
+The `.gitignore` in `~/.claude` uses a **deny-by-default** pattern: it starts with `*` to ignore everything, then selectively allows tracked files with `!` prefixes. If you create a new file that should be tracked (e.g., a new skill or config file), you must add a `!filename` entry to `.gitignore` first, or it will be silently ignored by git.
+
 ### Key environment variables
 
 - `$DOTFILES` — Points to `~/.dotfiles` (set in `zshrc.symlink`)
