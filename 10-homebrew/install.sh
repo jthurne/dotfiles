@@ -20,6 +20,13 @@ then
   fi
 fi
 
+# Homebrew 6.0+ requires non-official taps to be explicitly trusted with
+# `brew trust` before their formulae/casks will load; otherwise `brew bundle`
+# silently skips them. Trust the taps this Brewfile declares. Idempotent.
+grep -E "^[[:space:]]*tap " "${script_dir}/Brewfile" | awk -F"'" '{print $2}' | while read -r tap; do
+  [ -n "$tap" ] && brew trust --tap "$tap"
+done
+
 # Run Homebrew through the Brewfile
 echo "Updating/installing packages with Homebrew"
 brew bundle --file="${script_dir}/Brewfile"
