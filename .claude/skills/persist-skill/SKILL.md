@@ -9,6 +9,7 @@ description: >
   when the user asks you to install a skill AND persist it in one step — handle both
   the install script update and running it. Do NOT use for uninstalling skills or
   managing plugins (use persist-plugin for those).
+user_invocable: true
 ---
 
 # Persist Skill
@@ -77,14 +78,36 @@ For the REPO URL:
 - Use HTTPS URLs (`https://github.com/org/repo`) for public repos
 - Match the convention used in any existing script for the same GitHub org
 
-### 3. Run the install script
+### 3. Add the skill to .gitignore
+
+Installed skills are symlinked into `~/.claude/skills/`, so they must be excluded
+from git tracking. Find whichever extension provides `50-claude-code/claude.symlink/`
+(this varies by machine — `gradle-ai-agents` on work machines, `personal-ai-agents`
+on personal machines):
+
+```bash
+ls extensions/*-ai-agents/50-claude-code/claude.symlink/.gitignore
+```
+
+Add the new skill name under the existing exclusion comment:
+
+```gitignore
+# Ignore skills installed by npx (symlinks to ~/.agents/skills/)
+skills/gws-*
+skills/<new-skill-name>
+```
+
+### 4. Run the install script
 
 Run the install script with `bash <path-to-script>` to actually install the skill(s).
 
-### 4. Commit the changes
+### 5. Commit the changes
 
 Commit the modified or new install script in the correct extension repo
 (`~/.dotfiles/extensions/<extension-name>/`). Each extension is its own git repo.
+The `.gitignore` change from step 3 may live in a *different* extension (whichever
+provides `claude.symlink`) — verify with `git -C extensions/<name> remote -v` before
+committing, and commit each repo separately.
 Use a commit message like: `Add <skill-name> skill to install script`
 
 ## Existing install scripts for reference
